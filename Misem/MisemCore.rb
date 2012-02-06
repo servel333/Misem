@@ -86,8 +86,8 @@ def show_minecraft_status
     
 end
 
-def minecraft_log_chat_tail
-    puts Minecraft::Log.tail( :chat )
+def minecraft_log_tail( line_count = 6, *types )
+    puts Minecraft::Log.tail( line_count, *types )
 end
 
 ############################################################
