@@ -1,0 +1,46 @@
+
+server: /home/minecraft/server-bukkit5
+#server: /opt/minecraft
+#logs: /var/logs
+misem_logs: Misem/misem.log
+temp: dir: /tmp/misem
+screen: name: minecraft
+jar: craftbukkit-1.0.1-R1.jar
+
+worlds:
+    [adams, duck, duke, duck_nether, hyrule, hyrule_nether, hyrule_the_end]
+
+files:
+    #log: /var/logs/misem.log
+    Misem/misem.log
+
+paths:
+    misem: Misem
+    worlds: worlds
+
+archive:
+    worlds:  archive/worlds
+    logs:    archive/logs
+    plugins: archive/plugins
+    
+    def self.jarFile;       'craftbukkit-1.0.1-R1.jar';         end
+    #craftbukkit-1.1-R3.jar
+    def self.jarMemoryMax;      '1300M';    end
+    def self.jarMemoryStart;    '800M';     end
+    
+    # A list of worlds that will be backed up.
+    def self.world_names;    %w(
+        adams  duck  duke  duck_nether  hyrule  hyrule_nether  hyrule_the_end
+        );   end
+    
+    def self.worlds_path;    '/home/minecraft/server-bukkit5/worlds';    end
+    def self.pluginsPath;   '/home/minecraft/server-bukkit5/plugins';   end
+    
+    # List of items to back up.
+    # Separated by any whitespace.
+    # Relative to the server_path.
+    def self.backupExcludePaths;   %w(
+        plugins/dynmap/web/tiles
+        );   end
+
+
